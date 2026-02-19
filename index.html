@@ -82,15 +82,19 @@
 </div>
 
 <script>
+       function showPasswordBox() {
+        document.getElementById("popup").style.display = "none";
+        document.getElementById("loginBox").style.display = "block";
+    }
     function checkPassword() {
         var enteredPassword = document.getElementById("password").value;
-        var correctPassword = "#AyushPrachi#123";  // CHANGE THIS
+        var correctPassword = "#AyushPrachi143#"; 
 
         if (enteredPassword === correctPassword) {
             document.getElementById("loginBox").style.display = "none";
             document.getElementById("mainContent").style.display = "block";
         } else {
-            document.getElementById("error").innerText = "Wait!! are u sure u forgot password😤";
+            document.getElementById("error").innerText = "Wrong password 😝";
         }
     }
 </script>
