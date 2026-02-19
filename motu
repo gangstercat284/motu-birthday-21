@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Birthday Surprise ❤️</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #ff9a9e, #fad0c4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            color: white;
+        }
+
+        .container {
+            background: rgba(255,255,255,0.2);
+            padding: 40px;
+            border-radius: 20px;
+            width: 300px;
+        }
+
+        input {
+            padding: 10px;
+            border-radius: 20px;
+            border: none;
+            width: 80%;
+            margin-top: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin-top: 15px;
+            border-radius: 20px;
+            border: none;
+            cursor: pointer;
+            background: white;
+            color: #ff6f91;
+            font-weight: bold;
+        }
+
+        #error {
+            color: yellow;
+            margin-top: 10px;
+        }
+
+        #mainContent {
+            display: none;
+            padding: 40px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container" id="loginBox">
+    <h2>🔐 Enter Password</h2>
+    <input type="password" id="password" placeholder="Enter secret password">
+    <br>
+    <button onclick="checkPassword()">Unlock ❤️</button>
+    <div id="error"></div>
+</div>
+
+<div id="mainContent">
+    <h1>Happy Birthday My Love ❤️</h1>
+    <p>
+        You are the best thing that ever happened to me.
+        I hope this year brings you happiness, success, and everything you dream of.
+        I love you forever 💕
+    </p>
+</div>
+
+<script>
+    function checkPassword() {
+        var enteredPassword = document.getElementById("password").value;
+        var correctPassword = "iloveyou123";  // CHANGE THIS
+
+        if (enteredPassword === correctPassword) {
+            document.getElementById("loginBox").style.display = "none";
+            document.getElementById("mainContent").style.display = "block";
+        } else {
+            document.getElementById("error").innerText = "Wrong password 😝";
+        }
+    }
+</script>
+
+</body>
+</html>
