@@ -69,7 +69,7 @@
     <h2>🔐 Enter Password</h2>
     <input type="password" id="password" placeholder="Enter secret password">
     <br>
-    <button onclick="checkPassword()">Unlock ❤️</button>
+    <button onclick="goToLogin()">Open Your Gift</button>
     <div id="error"></div>
 </div>
 
@@ -80,12 +80,13 @@
         I hope this 21st birthday brings you happiness, success and a little more brain😋.   
     </p>
     <div class="photos">
-        <img src="https://raw.githubusercontent.com/gangstercat284/motu-birthday-21/main/mots.jpg/80" alt="Photo 1">
+        <img src="https://raw.githubusercontent.com/gangstercat284/motu-birthday-21/main/mots.jpg" width="200">
+    </div>
 </div>
 
 <script>
-       function showPasswordBox() {
-        document.getElementById("popup").style.display = "none";
+       function goToLogin() {
+        document.getElementById("page1").style.display = "none";
         document.getElementById("loginBox").style.display = "block";
     }
     function checkPassword() {
