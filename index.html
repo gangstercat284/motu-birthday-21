@@ -121,7 +121,7 @@
     <p> I love you so much my motura, my ghadheru </p>        
     <p> MUAHHHHHHHH!!!!😘😘💕</p>
     <div class="photos">
-       <img src="https://cdn.jsdelivr.net/gh/gangstercat284/motu-birthday-21/mots.jpg" width="250">
+       <img src="https://github.com/gangstercat284/motu-birthday-21/blob/main/mots.jpeg?raw=true" width="250">
     </div>
 </div>
 <audio id="suspenseMusic" loop>
@@ -135,6 +135,8 @@
       document.getElementById("openBtn").addEventListener("click", function() {
         document.getElementById("page1").style.display = "none";
         document.getElementById("loginBox").style.display = "block";
+
+            music.play().catch(err => console.log("Autoplay blocked", err));
     });
 
     document.getElementById("unlockBtn").addEventListener("click", function() {
@@ -197,3 +199,4 @@ let fadeOut = setInterval(() => {
 
 </body>
 </html>
+
