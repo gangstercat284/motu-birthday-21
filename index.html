@@ -109,7 +109,7 @@
     <input type="password" id="password" placeholder="Enter secret password">
     <br>
     <button id="unlockBtn">Unlock❤️</button>
-    <div id="error"></div>
+     <div id="error" style="color:yellow; margin-top:10px;"></div>
 </div>
 
 <div id="mainContent">
@@ -127,6 +127,7 @@
 <audio id="suspenseMusic" loop>
     <source src="https://www.chosic.com/download-audio/29562/" type="audio/mpeg">
 </audio>
+    
     <audio id="birthdaySong" loop>
   <source src="https://github.com/gangstercat284/motu-birthday-21/commit/a53dc631b8c208673641659b84b1190aaf64b14d">
 </audio>
@@ -143,7 +144,7 @@
     });
 
     document.getElementById("unlockBtn").addEventListener("click", function() {
-        const enteredPassword = document.getElementById("password").value.trim();
+        const enteredPassword = document.getElementById("password").value;
        
 
         if (enteredPassword === correctPassword) {
