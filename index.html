@@ -90,7 +90,7 @@
     });
 
     document.getElementById("unlockBtn").addEventListener("click", function() {
-        var enteredPassword = document.getElementById("password").value;
+        var enteredPassword = document.getElementById("password").value.trim();
         var correctPassword = "#AyushPrachi143#";
 
         if (enteredPassword === correctPassword) {
