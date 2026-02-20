@@ -129,36 +129,27 @@
 </audio>
 
 <script>
-    const music = document.getElementById("suspenseMusic");
-    const birthdaySong = document.getElementById("birthdaySong");
-     const correctPassword = "28042018";
-      document.getElementById("openBtn").addEventListener("click", function() {
-        document.getElementById("page1").style.display = "none";
-        document.getElementById("loginBox").style.display = "block";
+  const birthdaySong = document.getElementById("birthdaySong");
+const correctPassword = "#AyushPrachi#143";
 
-            music.play().catch(err => console.log("Autoplay blocked", err));
-    });
+document.getElementById("unlockBtn").addEventListener("click", function() {
+    const enteredPassword = document.getElementById("password").value.trim();
 
-    document.getElementById("unlockBtn").addEventListener("click", function() {
-        const enteredPassword = document.getElementById("password").value,trim();
-       
+    if (enteredPassword === correctPassword) {
+        // Play happy birthday song
+        birthdaySong.play().catch(err => console.log("Autoplay blocked", err));
 
-        if (enteredPassword === correctPassword) {
-            
-             birthdaySong.play().catch(err => console.log("Autoplay blocked", err));
-              // Confetti burst
-            confetti({
-                particleCount: 200,
-                spread: 100,
-                origin: { y: 0.6 }
-            });
-            document.getElementById("loginBox").style.display = "none";
-            document.getElementById("mainContent").style.display = "block";
-            startHearts();
-        } else {
-            document.getElementById("error").innerText = "Wrong password 😝";
-        }
-    }); 
+        // Confetti and hearts
+        confetti({ particleCount: 200, spread: 100, origin: { y: 0.6 } });
+        startHearts();
+
+        // Show main content
+        document.getElementById("loginBox").style.display = "none";
+        document.getElementById("mainContent").style.display = "block";
+    } else {
+        document.getElementById("error").innerText = "Wrong password 😝";
+    }
+});
      function startHearts() {
         setInterval(function() {
             const heart = document.createElement("div");
