@@ -15,7 +15,7 @@
             color: white;
         }
 
-        .container {
+        .box, #loginbox, #mainContent {
             background: rgba(255,255,255,0.2);
             padding: 40px;
             border-radius: 20px;
@@ -46,13 +46,13 @@
             margin-top: 10px;
         }
 
-        #mainContent {
+        #loginBox, #mainContent {
             display: none;
-            padding: 40px;
         }
     </style>
 </head>
 <body>
+    
 <div id="page1" class="box">
     <h1>HEY HANDSOME!!,</h1>
     <p>From meeting u in childhood and now seeing u move towards adulthood,</p>
@@ -60,16 +60,15 @@
   <p>Now on ur 21st birthday (seeing u much more budha than before😋)</p>
     <p> I wish you a very happy birthday my Ayush!!❤️😙</p>
 
-      <p>With Love,
-       Your Moti</p>
-    <button onclick="goToLogin()">Open Your Gift</button>
+      <p>With Love,<br>Your Moti</p>
+    <button id="openBtn">Open Your Gift</button>
 </div>
 
-<div id="loginBox" style="display:none;">
+<div id="loginBox">
     <h2>🔐 Enter Password</h2>
     <input type="password" id="password" placeholder="Enter secret password">
     <br>
-    <button onclick="goToLogin()">Open Your Gift</button>
+    <button id="unlockBtn">Unlock❤️</button>
     <div id="error"></div>
 </div>
 
@@ -85,13 +84,14 @@
 </div>
 
 <script>
-       function goToLogin() {
+      document.getElementById("openBtn").addEventListener("click", function() {
         document.getElementById("page1").style.display = "none";
         document.getElementById("loginBox").style.display = "block";
-    }
-    function checkPassword() {
+    });
+
+    document.getElementById("unlockBtn").addEventListener("click", function() {
         var enteredPassword = document.getElementById("password").value;
-        var correctPassword = "#AyushPrachi143#"; 
+        var correctPassword = "#AyushPrachi143#";
 
         if (enteredPassword === correctPassword) {
             document.getElementById("loginBox").style.display = "none";
@@ -99,7 +99,7 @@
         } else {
             document.getElementById("error").innerText = "Wrong password 😝";
         }
-    }
+    }); 
 </script>
 
 </body>
