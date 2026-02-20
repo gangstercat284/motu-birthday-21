@@ -2,24 +2,71 @@
 <html>
 <head>
     <title>Happy Birthday Motu</title>
+    <meta name="viewport" content="width+device-width, initial-scale=1.0">
+     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <style>
         body {
             margin: 0;
-            font-family: Arial, sans-serif;
-            background: linear-gradient(to right, #ff9a9e, #fad0c4);
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #ffdde1, #fbc2eb);
+            background-size: 400% 400%;
+            animation: gradientBG 10s ease infinite;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             text-align: center;
             color: white;
+            overflow: hidden;
+        }
+ @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
-        .box, #loginbox, #mainContent {
-            background: rgba(255,255,255,0.2);
-            padding: 40px;
-            border-radius: 20px;
-            width: 300px;
+        .card {
+            backdrop-filter: blur(15px);
+            background: rgba(255, 255, 255, 0.25);
+            padding: 60px;
+            border-radius: 30px;
+            width: 500px;
+            max-width: 90%;
+            color: white;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+            animation: fadeIn 1s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 {
+            font-size: 28px;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        button {
+            padding: 12px 25px;
+            margin-top: 20px;
+            border-radius: 30px;
+            border: none;
+            cursor: pointer;
+            background: white;
+            color: #ff4f81;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #ff4f81;
+            color: white;
+            transform: scale(1.05);
         }
 
         input {
@@ -27,28 +74,21 @@
             border-radius: 20px;
             border: none;
             width: 80%;
-            margin-top: 10px;
-        }
-
-        button {
-            padding: 10px 20px;
             margin-top: 15px;
-            border-radius: 20px;
-            border: none;
-            cursor: pointer;
-            background: white;
-            color: #ff6f91;
-            font-weight: bold;
+            text-align: center;
         }
 
-        #error {
-            color: yellow;
-            margin-top: 10px;
+        img {
+            width: 250px;
+            border-radius: 20px;
+            margin-top: 20px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
         }
 
         #loginBox, #mainContent {
             display: none;
         }
+       
     </style>
 </head>
 <body>
@@ -84,22 +124,58 @@
 </div>
 
 <script>
+     const correctPassword = "#AyushPrachi#143";
       document.getElementById("openBtn").addEventListener("click", function() {
         document.getElementById("page1").style.display = "none";
         document.getElementById("loginBox").style.display = "block";
     });
 
     document.getElementById("unlockBtn").addEventListener("click", function() {
-        var enteredPassword = document.getElementById("password").value;
-        var correctPassword = "#AyushPrachi#143";
+        const enteredPassword = document.getElementById("password").value.trim();
+       
 
         if (enteredPassword === correctPassword) {
+              // Confetti burst
+            confetti({
+                particleCount: 200,
+                spread: 100,
+                origin: { y: 0.6 }
+            });
             document.getElementById("loginBox").style.display = "none";
             document.getElementById("mainContent").style.display = "block";
+            startHearts();
         } else {
             document.getElementById("error").innerText = "Wrong password 😝";
         }
     }); 
+     function startHearts() {
+        setInterval(function() {
+            const heart = document.createElement("div");
+            heart.innerHTML = "❤";
+            heart.style.position = "fixed";
+            heart.style.color = "#ff4f81";
+            heart.style.fontSize = "20px";
+            heart.style.opacity = "0.8";
+            heart.style.pointerEvents = "none";
+
+            const sideLeft = Math.random() > 0.5;
+            heart.style.left = sideLeft ? "0px" : "calc(100% - 20px)";
+            heart.style.top = Math.random() * window.innerHeight + "px";
+
+            document.body.appendChild(heart);
+
+            heart.animate([
+                { transform: "translateX(0)", opacity: 1 },
+                { transform: sideLeft ? "translateX(80px)" : "translateX(-80px)", opacity: 0 }
+            ], {
+                duration: 3000,
+                easing: "ease-out"
+            });
+
+            setTimeout(() => heart.remove(), 3000);
+
+        }, 400);
+    }
 </script>
 
 </body>
