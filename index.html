@@ -129,55 +129,57 @@
 </audio>
 
 <script>
-  const birthdaySong = document.getElementById("birthdaySong");
+const birthdaySong = document.getElementById("birthdaySong");
 const correctPassword = "#AyushPrachi#143";
 
+// OPEN GIFT BUTTON
+document.getElementById("openBtn").addEventListener("click", function() {
+    document.getElementById("page1").style.display = "none";
+    document.getElementById("loginBox").style.display = "block";
+});
+
+// UNLOCK BUTTON
 document.getElementById("unlockBtn").addEventListener("click", function() {
     const enteredPassword = document.getElementById("password").value.trim();
 
     if (enteredPassword === correctPassword) {
-        // Play happy birthday song
         birthdaySong.play().catch(err => console.log("Autoplay blocked", err));
-
-        // Confetti and hearts
         confetti({ particleCount: 200, spread: 100, origin: { y: 0.6 } });
         startHearts();
-
-        // Show main content
         document.getElementById("loginBox").style.display = "none";
         document.getElementById("mainContent").style.display = "block";
     } else {
         document.getElementById("error").innerText = "Wrong password 😝";
     }
 });
-     function startHearts() {
-        setInterval(function() {
-            const heart = document.createElement("div");
-            heart.innerHTML = "❤";
-            heart.style.position = "fixed";
-            heart.style.color = "#ff4f81";
-            heart.style.fontSize = "20px";
-            heart.style.opacity = "0.8";
-            heart.style.pointerEvents = "none";
 
-            const sideLeft = Math.random() > 0.5;
-            heart.style.left = sideLeft ? "0px" : "calc(100% - 20px)";
-            heart.style.top = Math.random() * window.innerHeight + "px";
+function startHearts() {
+    setInterval(function() {
+        const heart = document.createElement("div");
+        heart.innerHTML = "❤";
+        heart.style.position = "fixed";
+        heart.style.color = "#ff4f81";
+        heart.style.fontSize = "20px";
+        heart.style.opacity = "0.8";
+        heart.style.pointerEvents = "none";
 
-            document.body.appendChild(heart);
+        const sideLeft = Math.random() > 0.5;
+        heart.style.left = sideLeft ? "0px" : "calc(100% - 20px)";
+        heart.style.top = Math.random() * window.innerHeight + "px";
 
-            heart.animate([
-                { transform: "translateX(0)", opacity: 1 },
-                { transform: sideLeft ? "translateX(80px)" : "translateX(-80px)", opacity: 0 }
-            ], {
-                duration: 3000,
-                easing: "ease-out"
-            });
+        document.body.appendChild(heart);
 
-            setTimeout(() => heart.remove(), 3000);
+        heart.animate([
+            { transform: "translateX(0)", opacity: 1 },
+            { transform: sideLeft ? "translateX(80px)" : "translateX(-80px)", opacity: 0 }
+        ], {
+            duration: 3000,
+            easing: "ease-out"
+        });
 
-        }, 400);
-    }
+        setTimeout(() => heart.remove(), 3000);
+    }, 400);
+}
 </script>
 
 </body>
