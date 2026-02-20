@@ -125,12 +125,15 @@
     </div>
 </div>
 <audio id="suspenseMusic" loop>
-    <source src="https://www.chosic.com/download-audio/29562/">
-    Your browser does not support the audio element.
+    <source src="https://www.chosic.com/download-audio/29562/" type="audio/mpeg">
+</audio>
+    <audio id="birthdaySong" loop>
+  <source src="https://www.chosic.com/download-audio/29562/">
 </audio>
 
 <script>
     const music = document.getElementById("suspenseMusic");
+    const birthdaySong = document.getElementById("birthdaySong");
      const correctPassword = "#AyushPrachi#143";
       document.getElementById("openBtn").addEventListener("click", function() {
         document.getElementById("page1").style.display = "none";
@@ -144,16 +147,10 @@
        
 
         if (enteredPassword === correctPassword) {
-let fadeOut = setInterval(() => {
-    if (music.volume > 0.05) {
-        music.volume -= 0.05;
-    } else {
-        music.pause();
-        music.volume = 1; // reset volume for next time
-        clearInterval(fadeOut);
-    }
-}, 100);
+ suspense.pause();
+        suspense.currentTime = 0;
             
+             birthdaySong.play().catch(err => console.log("Autoplay blocked", err));
               // Confetti burst
             confetti({
                 particleCount: 200,
