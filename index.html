@@ -123,11 +123,7 @@
     <div class="photos">
        <img src="https://github.com/gangstercat284/motu-birthday-21/blob/main/mots.jpeg?raw=true" width="250">
     </div>
-</div>
-<audio id="suspenseMusic" loop>
-    <source src="https://www.chosic.com/download-audio/29562/" type="audio/mpeg">
-</audio>
-    
+</div> 
     <audio id="birthdaySong" loop>
   <source src="https://github.com/gangstercat284/motu-birthday-21/commit/a53dc631b8c208673641659b84b1190aaf64b14d">
 </audio>
@@ -135,7 +131,7 @@
 <script>
     const music = document.getElementById("suspenseMusic");
     const birthdaySong = document.getElementById("birthdaySong");
-     const correctPassword = "#AyushPrachi#143";
+     const correctPassword = "28042018";
       document.getElementById("openBtn").addEventListener("click", function() {
         document.getElementById("page1").style.display = "none";
         document.getElementById("loginBox").style.display = "block";
@@ -148,8 +144,6 @@
        
 
         if (enteredPassword === correctPassword) {
- suspense.pause();
-        suspense.currentTime = 0;
             
              birthdaySong.play().catch(err => console.log("Autoplay blocked", err));
               // Confetti burst
